@@ -118,13 +118,18 @@ public class Agent extends Application{
 		}
 	}
 	public void Console(int i){
-		if ( i == 0 ){
-			Agentserver AS = new Agentserver();
-			AS.Agentserver(tfE[0].getText(),Integer.valueOf(tfE[1].getText()));
+		try{
+			if ( i == 0 ){
+				Agentserver_re AS = new Agentserver_re();
+				AS.Agentserver(tfE[0].getText(),Integer.valueOf(tfE[1].getText()));
+			}
+			else if ( i == 1 ){
+				Agentclient_re AC = new Agentclient_re();
+				AC.Agentclient(tfE[0].getText(),Integer.valueOf(tfE[1].getText()));
+			}
 		}
-		else if ( i == 1 ){
-			Agentclient AC = new Agentclient();
-			AC.Agentclient(tfE[0].getText(),Integer.valueOf(tfE[1].getText()));
+		catch (NumberFormatException e){
+			;
 		}
 	}
 	class SampleEventHandler implements EventHandler<ActionEvent>{
